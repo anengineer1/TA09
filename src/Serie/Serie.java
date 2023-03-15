@@ -1,6 +1,8 @@
 package Serie;
 
-public class Serie {
+import Entregable.Entregable;
+
+public class Serie implements Entregable {
 
 	// constantes que indican el valor por defecto
 	final private String TITULO_POR_DEFECTO = "";
@@ -76,6 +78,28 @@ public class Serie {
 
 	public void setCreador(String creador) {
 		this.creador = creador;
+	}
+
+	@Override
+	public boolean isEntregado() {
+		return this.entregado;
+	}
+
+	@Override
+	public void entregar() {
+		this.entregado = true;
+	}
+
+	@Override
+	public void devolver() {
+		this.entregado = false;
+	}
+
+	@Override
+	public boolean compareTo(Object pelicula) {
+		// Retorna true si la Serie tienes más temporadas que su
+		// Argumento
+		return (this.numero_temporadas > ((Serie) pelicula).getNumero_temporadas());
 	}
 
 }
