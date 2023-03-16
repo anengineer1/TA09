@@ -3,13 +3,14 @@ package Serie;
 import java.util.ArrayList;
 
 import Entregable.Entregable;
+import java.util.ArrayList;
 
 public class Serie implements Entregable {
 
 	// constantes que indican el valor por defecto
 	final private String TITULO_POR_DEFECTO = "";
 	final private int TEMPORADAS_POR_DEFECTO = 3;
-	final private boolean ENTREDAGO_POR_DEFECTO = true;
+	final private boolean ENTREGADO_POR_DEFECTO = true;
 	final private String GENERO_POR_DEFECTO = "";
 	final private String CREADOR_POR_DEFECTO = "";
 
@@ -24,7 +25,7 @@ public class Serie implements Entregable {
 		this.numero_temporadas = this.TEMPORADAS_POR_DEFECTO;
 		this.genero = this.GENERO_POR_DEFECTO;
 		this.creador = this.CREADOR_POR_DEFECTO;
-		this.entregado = this.ENTREDAGO_POR_DEFECTO;
+		this.entregado = this.ENTREGADO_POR_DEFECTO;
 	}
 
 	public Serie(String titulo, String creador) {
@@ -32,7 +33,7 @@ public class Serie implements Entregable {
 		this.numero_temporadas = this.TEMPORADAS_POR_DEFECTO;
 		this.genero = this.GENERO_POR_DEFECTO;
 		this.creador = creador;
-		this.entregado = this.ENTREDAGO_POR_DEFECTO;
+		this.entregado = this.ENTREGADO_POR_DEFECTO;
 	}
 
 	public Serie(String titulo, int numero_temporadas, String genero, String creador) {
@@ -40,7 +41,7 @@ public class Serie implements Entregable {
 		this.numero_temporadas = numero_temporadas;
 		this.genero = genero;
 		this.creador = creador;
-		this.entregado = this.ENTREDAGO_POR_DEFECTO;
+		this.entregado = this.ENTREGADO_POR_DEFECTO;
 	}
 
 	@Override
@@ -87,15 +88,14 @@ public class Serie implements Entregable {
 	}
 
 	@Override
-	public boolean entregar() {
+	public void entregar() {
 		return this.entregado = true;
 	}
 
 	@Override
-	public boolean devolver() {
+	public void devolver() {
 		return this.entregado = false;
 	}
-
 
 	@Override
 	public int compareTo(Object o) {
@@ -103,13 +103,14 @@ public class Serie implements Entregable {
 		Series = (ArrayList<Serie>) o;
 		int NumMasGrande = Series.get(0).numero_temporadas;
 		int MasTemporadas = 0;
-		
+
 		for (int i=1; i < Series.size(); i++) {
 			if (Series.get(i).numero_temporadas >= NumMasGrande) {
 				NumMasGrande = Series.get(i).numero_temporadas;
 				MasTemporadas = i;
 			}
 		}
+
 		
 		return MasTemporadas;
 	}
@@ -119,4 +120,13 @@ public class Serie implements Entregable {
 		// Argumento
 		return (this.numero_temporadas > ((Serie) pelicula).getNumero_temporadas());
 	}*/
+
+
+//	@Override
+//	public boolean compareTo(Object pelicula) {
+//		// Retorna true si la Serie tienes más temporadas que su
+//		// Argumento
+//		return (this.numero_temporadas > ((Serie) pelicula).getNumero_temporadas());
+//	}
+
 }
