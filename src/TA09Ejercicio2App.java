@@ -12,8 +12,8 @@ public class TA09Ejercicio2App {
 		
 		// Declaración de las variables
 		String ElegirTipo = "";
-		String IntroducirOtroTipo = "SI";
-		String IntroducirMas = "SI";
+		String IntroducirOtroTipo = "";
+		String IntroducirMas = "";
 		String Titulo = "";
 		String TextoTemporadas;
 		int Temporadas;
@@ -31,15 +31,16 @@ public class TA09Ejercicio2App {
 		Serie Serie = new Serie();
 		Videojuego Videojuego = new Videojuego();
 		
-		while (IntroducirOtroTipo.equals("SI")) {
-			while(ElegirTipo.isEmpty() || !ElegirTipo.equals("SERIE") && !ElegirTipo.equals("VIDEOUEGO")) {
+		while (IntroducirOtroTipo.isEmpty() || IntroducirOtroTipo.contains("SI")) {
+			while(ElegirTipo.isEmpty() || !ElegirTipo.equals("SERIE") && !ElegirTipo.equals("VIDEOJUEGO")) {
 				ElegirTipo = JOptionPane.showInputDialog("¿Que deseas introducir? [ Serie | Videojuego ]");
 				ElegirTipo = ElegirTipo.toUpperCase();
 				System.out.println(ElegirTipo);
 			}
 			
 			if(ElegirTipo.equals("SERIE")) {
-				while (IntroducirMas.equals("SI")) {
+				IntroducirMas = "";
+				while (IntroducirMas.isEmpty()) {
 					//Comenzamos a pedir los datos por ventanas
 					//Si no se escribe nada, con las función isEmpty volveremos a pedir los datos 
 					while(Titulo.isEmpty()) {
@@ -76,14 +77,14 @@ public class TA09Ejercicio2App {
 					Series.add(Serie);
 					
 					//Preguntamos si queremos intoducir mas series
-					while(IntroducirMas.isEmpty() || !IntroducirMas.equals("SI") && !IntroducirMas.equals("NO")) {
+					while((IntroducirMas.isEmpty() || !IntroducirMas.equals("SI")) && !IntroducirMas.equals("NO")) {
 						IntroducirMas = JOptionPane.showInputDialog("¿Deseas introducir otra serie? [ SI | NO ]");
 						IntroducirMas = IntroducirMas.toUpperCase();
 					}
 				}
 			} else if(ElegirTipo.equals("VIDEOJUEGO")) {
-				IntroducirMas = "SI";
-				while (IntroducirMas.equals("SI")) {
+				IntroducirMas = "";
+				while (IntroducirMas.isEmpty()) {
 					//Comenzamos a pedir los datos por ventanas
 					//Si no se escribe nada, con las función isEmpty volveremos a pedir los datos
 					while(Titulo.isEmpty()) {
@@ -131,7 +132,7 @@ public class TA09Ejercicio2App {
 			}
 			
 			//Preguntamos si queremos intoducir mas elementos
-			while(IntroducirOtroTipo.isEmpty() || !IntroducirOtroTipo.equals("SI") || !IntroducirOtroTipo.equals("NO")) {
+			while(IntroducirOtroTipo.isEmpty() || !IntroducirOtroTipo.equals("SI") && !IntroducirOtroTipo.equals("NO")) {
 				IntroducirOtroTipo = JOptionPane.showInputDialog("¿Deseas introducir otro elemento? [ SI | NO ]");
 				IntroducirOtroTipo = IntroducirOtroTipo.toUpperCase();
 			}
