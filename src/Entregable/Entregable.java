@@ -4,5 +4,5 @@ public interface Entregable {
 	public void entregar();
 	public void devolver();
 	public boolean isEntregado();
-	public boolean compareTo(Object media);
+	public int compareTo(Object media);
 }
