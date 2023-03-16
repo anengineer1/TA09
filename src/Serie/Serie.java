@@ -1,5 +1,7 @@
 package Serie;
 
+import java.util.ArrayList;
+
 import Entregable.Entregable;
 
 public class Serie implements Entregable {
@@ -7,7 +9,7 @@ public class Serie implements Entregable {
 	// constantes que indican el valor por defecto
 	final private String TITULO_POR_DEFECTO = "";
 	final private int TEMPORADAS_POR_DEFECTO = 3;
-	final private boolean ENTREDAGO_POR_DEFECTO = false;
+	final private boolean ENTREDAGO_POR_DEFECTO = true;
 	final private String GENERO_POR_DEFECTO = "";
 	final private String CREADOR_POR_DEFECTO = "";
 
@@ -43,9 +45,8 @@ public class Serie implements Entregable {
 
 	@Override
 	public String toString() {
-		return "Título: " + this.titulo + "\n" + "Número de temporadas: " + this.numero_temporadas + "\n"
-				+ "Entregado: " + this.entregado + "\n" + "Género: " + this.genero + "\n" + "Creador: " + this.creador
-				+ "\n";
+		return "Título: " + this.titulo + "]\n" + "[Número de temporadas: " + this.numero_temporadas + "]\n"
+				+ "[Entregado: " + this.entregado + "]\n" + "[Género: " + this.genero + "]\n" + "[Creador: " + this.creador;
 	}
 
 	public String getTitulo() {
@@ -86,20 +87,36 @@ public class Serie implements Entregable {
 	}
 
 	@Override
-	public void entregar() {
-		this.entregado = true;
+	public boolean entregar() {
+		return this.entregado = true;
 	}
 
 	@Override
-	public void devolver() {
-		this.entregado = false;
+	public boolean devolver() {
+		return this.entregado = false;
 	}
 
+
 	@Override
-	public boolean compareTo(Object pelicula) {
+	public int compareTo(Object o) {
+		ArrayList<Serie> Series = new ArrayList<Serie>();
+		Series = (ArrayList<Serie>) o;
+		int NumMasGrande = Series.get(0).numero_temporadas;
+		int MasTemporadas = 0;
+		
+		for (int i=1; i < Series.size(); i++) {
+			if (Series.get(i).numero_temporadas >= NumMasGrande) {
+				NumMasGrande = Series.get(i).numero_temporadas;
+				MasTemporadas = i;
+			}
+		}
+		
+		return MasTemporadas;
+	}
+	
+	/*public boolean compareTo(Object pelicula) {
 		// Retorna true si la Serie tienes más temporadas que su
 		// Argumento
 		return (this.numero_temporadas > ((Serie) pelicula).getNumero_temporadas());
-	}
-
+	}*/
 }
