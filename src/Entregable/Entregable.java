@@ -1,8 +1,8 @@
 package Entregable;
 
 public interface Entregable {
-	public void entregar();
-	public void devolver();
+	public boolean entregar();
+	public boolean devolver();
 	public boolean isEntregado();
-	public int compareTo(Object media);
+  public int compareTo(Object o);
 }

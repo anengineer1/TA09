@@ -1,5 +1,7 @@
 package Videojuego;
 
+import java.util.ArrayList;
+
 import Entregable.Entregable;
 
 import Serie.Serie;
@@ -83,13 +85,13 @@ public class Videojuego implements Entregable {
 	}
 
 	@Override
-	public void entregar() {
-		this.entregado = true;
+	public boolean entregar() {
+		return this.entregado = true;
 	}
 
 	@Override
-	public void devolver() {
-		this.entregado = false;
+	public boolean devolver() {
+		return this.entregado = false;
 	}
 	
 	@Override
@@ -98,21 +100,14 @@ public class Videojuego implements Entregable {
 		Videojuegos = (ArrayList<Videojuego>) o;
 		int NumMasGrande = Videojuegos.get(0).horas;
 		int MasHoras = 0;
-
-		for (int i=1; i < Videojuegos.size(); i++) {
-			if (Videojuegos.get(i).horas >= NumMasGrande) {
-				NumMasGrande = Videojuegos.get(i).horas;
-				MasHoras = i;
-			}
-		}
-
+		
 		return MasHoras;
 	}
 
-//	@Override
-//	public boolean compareTo(Object videojuego) {
-//		// Retorna true si la Serie tienes más temporadas que su
-//		// Argumento
-//		return (this.horas > ((Videojuego) videojuego).getHoras());
-//	}
+	/*public boolean compareTo(Object videojuego) {
+		// Retorna true si la Serie tienes más temporadas que su
+		// Argumento
+		return (this.horas > ((Videojuego) videojuego).getHoras());
+	}*/
+
 }
