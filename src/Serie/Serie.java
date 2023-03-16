@@ -89,12 +89,12 @@ public class Serie implements Entregable {
 
 	@Override
 	public void entregar() {
-		return this.entregado = true;
+		this.entregado = true;
 	}
 
 	@Override
 	public void devolver() {
-		return this.entregado = false;
+		this.entregado = false;
 	}
 
 	@Override
@@ -120,13 +120,5 @@ public class Serie implements Entregable {
 		// Argumento
 		return (this.numero_temporadas > ((Serie) pelicula).getNumero_temporadas());
 	}*/
-
-
-//	@Override
-//	public boolean compareTo(Object pelicula) {
-//		// Retorna true si la Serie tienes más temporadas que su
-//		// Argumento
-//		return (this.numero_temporadas > ((Serie) pelicula).getNumero_temporadas());
-//	}
 
 }

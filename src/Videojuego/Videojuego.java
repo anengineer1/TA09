@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import Entregable.Entregable;
 
-import Serie.Serie;
 import Entregable.Entregable;
 import java.util.ArrayList;
 
@@ -85,13 +84,13 @@ public class Videojuego implements Entregable {
 	}
 
 	@Override
-	public boolean entregar() {
-		return this.entregado = true;
+	public void entregar() {
+		this.entregado = true;
 	}
 
 	@Override
-	public boolean devolver() {
-		return this.entregado = false;
+	public void devolver() {
+		this.entregado = false;
 	}
 	
 	@Override
