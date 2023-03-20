@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
+package main;
 
 import Serie.Serie;
 import Videojuego.Videojuego;
@@ -8,176 +6,71 @@ import Videojuego.Videojuego;
 public class TA09Ejercicio2App {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		// Declaración de las variables
-		String ElegirTipo = "";
-		String IntroducirOtroTipo = "";
-		String IntroducirMas = "";
-		String Titulo = "";
-		String TextoTemporadas;
-		int Temporadas;
-		String TextoHoras;
-		int Horas;
-		String Genero = "";
-		String Creador = "";
-		String Compañia = "";
-		String Entregado = "";
-		
-		ArrayList<Serie> Series = new ArrayList<Serie>();
-		ArrayList<Videojuego> Videojuegos = new ArrayList<Videojuego>();
-		
-		//Creamos una nueva serie
-		Serie Serie = new Serie();
-		Videojuego Videojuego = new Videojuego();
-		
-		while (IntroducirOtroTipo.isEmpty() || IntroducirOtroTipo.contains("SI")) {
-			while(ElegirTipo.isEmpty() || !ElegirTipo.equals("SERIE") && !ElegirTipo.equals("VIDEOJUEGO")) {
-				ElegirTipo = JOptionPane.showInputDialog("¿Que deseas introducir? [ Serie | Videojuego ]");
-				ElegirTipo = ElegirTipo.toUpperCase();
-				System.out.println(ElegirTipo);
-			}
-			
-			if(ElegirTipo.equals("SERIE")) {
-				IntroducirMas = "";
-				while (IntroducirMas.isEmpty()) {
-					//Comenzamos a pedir los datos por ventanas
-					//Si no se escribe nada, con las función isEmpty volveremos a pedir los datos 
-					while(Titulo.isEmpty()) {
-						Titulo = JOptionPane.showInputDialog("Introduce el titulo:");
-					}
-					
-					TextoTemporadas = JOptionPane.showInputDialog("Introduce el número de temporadas");
-					while(TextoTemporadas.isEmpty()) {
-						Temporadas = Serie.getNumero_temporadas();
-					}
-					Temporadas = Integer.parseInt(TextoTemporadas);
-					
-					while(Genero.isEmpty()) {
-						Genero = JOptionPane.showInputDialog("Introduce el género:");
-					}
-					
-					while(Creador.isEmpty()) {
-						Creador = JOptionPane.showInputDialog("Introduce el creador:");
-					}
-					
-					Serie = new Serie(Titulo, Temporadas, Genero, Creador);
-					
-					while(Entregado.isEmpty()) {
-						Entregado = JOptionPane.showInputDialog("Esta entregada? [ SI | NO ]"); 
-					}
-					
-					if(Entregado.equals("SI")) {
-						Serie.entregar();
-					} else {
-						Serie.devolver();
-					}
-					
-					//Guarda cada serie en un ArrayList, llenando los atributos con los valores que hemos introducido
-					Series.add(Serie);
-					
-					//Preguntamos si queremos intoducir mas series
-					while((IntroducirMas.isEmpty() || !IntroducirMas.equals("SI")) && !IntroducirMas.equals("NO")) {
-						IntroducirMas = JOptionPane.showInputDialog("¿Deseas introducir otra serie? [ SI | NO ]");
-						IntroducirMas = IntroducirMas.toUpperCase();
-					}
-				}
-			} else if(ElegirTipo.equals("VIDEOJUEGO")) {
-				IntroducirMas = "";
-				while (IntroducirMas.isEmpty()) {
-					//Comenzamos a pedir los datos por ventanas
-					//Si no se escribe nada, con las función isEmpty volveremos a pedir los datos
-					while(Titulo.isEmpty()) {
-						Titulo = JOptionPane.showInputDialog("Introduce el titulo:");
-					}
-					
-					TextoHoras = JOptionPane.showInputDialog("Introduce el número de horas estimadas");
-					while(TextoHoras.isEmpty()) {
-						Horas = Videojuego.getHoras();
-					}
-					Horas = Integer.parseInt(TextoHoras);
-					
-					while(Genero.isEmpty()) {
-						Genero = JOptionPane.showInputDialog("Introduce el género:");
-					}
-					
-					while(Compañia.isEmpty()) {
-						Compañia = JOptionPane.showInputDialog("Introduce la compañia:");
-					} 
-					
-					Videojuego = new Videojuego(Titulo, Horas, Genero, Compañia);
-					
-					while(Entregado.isEmpty()) {
-						Entregado = JOptionPane.showInputDialog("Esta entregado? [ SI | NO ]"); 
-					}
-					
-					Entregado = Entregado.toUpperCase();
-					
-					if(Entregado.equals("SI")) {
-						Videojuego.entregar();
-					} else {
-						Videojuego.devolver();
-					}
-					
-					
-					//Guarda cada videojuego en un ArrayList, llenando los atributos con los valores que hemos introducido
-					Videojuegos.add(Videojuego);
-					
-					//Preguntamos si queremos intoducir mas videojuegos
-					while(IntroducirMas.isEmpty() || !IntroducirMas.equals("SI") && !IntroducirMas.equals("NO")) {
-						IntroducirMas = JOptionPane.showInputDialog("¿Deseas introducir otro videojuego? [ SI | NO ]");
-						IntroducirMas = IntroducirMas.toUpperCase();
-					}
-				}
-			}
-			
-			//Preguntamos si queremos intoducir mas elementos
-			while(IntroducirOtroTipo.isEmpty() || !IntroducirOtroTipo.equals("SI") && !IntroducirOtroTipo.equals("NO")) {
-				IntroducirOtroTipo = JOptionPane.showInputDialog("¿Deseas introducir otro elemento? [ SI | NO ]");
-				IntroducirOtroTipo = IntroducirOtroTipo.toUpperCase();
+
+		Serie[] series = new Serie[5];
+		Videojuego[] videojuegos = new Videojuego[5];
+
+		series[0] = new Serie("El señor de los anillos", 5, "Aventuras", "Peterson");
+		series[1] = new Serie("Gente buena", "Lavanda");
+		series[1].setGenero("Novela histórica");
+		series[1].setNumero_temporadas(6);
+		series[2] = new Serie("Máquinas", 7, "Acción", "Fajardo");
+		series[3] = new Serie("Edificios chulos", 3, "Aventuras", "Josseppe");
+		series[4] = new Serie("Pluto", 9, "Aventuras", "Peterson");
+
+		videojuegos[0] = new Videojuego("Half life", 10, "fps", "Valve");
+		videojuegos[1] = new Videojuego("Call of duty", 5, "fps", "Infinity ward");
+		videojuegos[2] = new Videojuego("Hollow knight", 15, "Aventuras", "Indie");
+		videojuegos[3] = new Videojuego("Super Mario Bros", 6, "Plataformas", "Nintendo");
+		videojuegos[4] = new Videojuego("Half life 2", 11, "fps", "Valve");
+
+		// Entregar videojuegos y películas
+		series[1].entregar();
+		series[4].entregar();
+		videojuegos[2].entregar();
+		videojuegos[0].entregar();
+
+		// Contar y publicados y hacer print
+		System.out.println("Los juegos entregados son:");
+		int contador_juegos_entregados = 0;
+		for (Videojuego videojuego : videojuegos) {
+			if (videojuego.isEntregado()) {
+				contador_juegos_entregados++;
+				System.out.println(videojuego);
 			}
 		}
-		
-		if(Series == null || Series.size() == 0) {
-			System.out.println("No se ha introducido ninguna serie");
-		} else {
-			//Mostramos las series entregados
-			if(Serie.isEntregado() == true) {
-				System.out.println("Listado de series entregadas");
-				System.out.println("");
-				for (int i = 1; i <= Series.size(); i++) {
-					System.out.println(Series.toString());
-					System.out.println("");
-				}
-			} else {
-				System.out.println("No hay ninguna serie entregada");
+		System.out.println("Número de juegos entregados: " + contador_juegos_entregados);
+
+		System.out.println("Las series entregadas son:");
+		int contador_series_entregadas = 0;
+		for (Serie serie : series) {
+			if (serie.isEntregado()) {
+				contador_series_entregadas++;
+				System.out.println(serie);
 			}
-			
-			//Mostramos la serie con mas temporadas
-			System.out.println("");
-			System.out.println("La serie con mas temporadas es:");
-			System.out.println("[" + Series.get(Serie.compareTo(Series)).toString() + "]");
 		}
-		
-		if(Videojuegos == null || Videojuegos.size() == 0) {
-			System.out.println("No se ha introducido ningun videojuego");
-		} else {
-			//Mostramos los videojuegos entregados
-			if(Videojuego.isEntregado() == true) {
-				System.out.println("Listado de videojuegos entregados");
-				System.out.println("");
-				for (int i = 1; i <= Videojuegos.size(); i++) {
-					System.out.println(Videojuego.toString());
-					System.out.println("");
-				} 
-			} else {
-				System.out.println("No hay ningun videojuego entregado");
+		System.out.println("Número de series entregadas: " + contador_series_entregadas);
+		System.out.println("El total entregado es: " + (contador_juegos_entregados + contador_series_entregadas));
+
+		int indice_videojuego_mas_horas = 0;
+		for (int i = 0; i < videojuegos.length; i++) {
+			if (videojuegos[indice_videojuego_mas_horas].compareTo(videojuegos[i])) {
+				indice_videojuego_mas_horas = i;
 			}
-			
-			//Mostramos el videojuego con mas horas estimadas
-			System.out.println("");
-			System.out.println("El videojuego con mas horas estimadas es:");
-			System.out.println("[" + Videojuegos.get(Videojuego.compareTo(Videojuegos)).toString() + "]");
 		}
+
+		int indice_serie_mas_temporadas = 0;
+		for (int i = 0; i < videojuegos.length; i++) {
+			if (series[indice_serie_mas_temporadas].compareTo(series[i])) {
+				indice_serie_mas_temporadas = i;
+			}
+		}
+
+		System.out.println("El videojuego de mayor cantidad de horas es:");
+		System.out.println(videojuegos[indice_videojuego_mas_horas]);
+
+		System.out.println("La serie de mayor cantidad de temporadas es:");
+		System.out.println(series[indice_serie_mas_temporadas]);
+
 	}
 }
