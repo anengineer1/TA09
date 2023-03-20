@@ -1,4 +1,4 @@
-package Entregable;
+package interfaces;
 
 public interface Entregable {
 	

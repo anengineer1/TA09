@@ -1,10 +1,8 @@
-package Videojuego;
+package classes;
 
 import java.util.ArrayList;
 
-import Entregable.Entregable;
-
-import Entregable.Entregable;
+import interfaces.Entregable;
 import java.util.ArrayList;
 
 public class Videojuego implements Entregable {

@@ -1,7 +1,7 @@
 package main;
 
-import Serie.Serie;
-import Videojuego.Videojuego;
+import classes.Serie;
+import classes.Videojuego;
 
 public class TA09Ejercicio2App {
 

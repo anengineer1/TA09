@@ -1,8 +1,8 @@
-package Serie;
+package classes;
 
 import java.util.ArrayList;
 
-import Entregable.Entregable;
+import interfaces.Entregable;
 import java.util.ArrayList;
 
 public class Serie implements Entregable {
