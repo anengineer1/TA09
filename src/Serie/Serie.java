@@ -97,27 +97,9 @@ public class Serie implements Entregable {
 		this.entregado = false;
 	}
 
-	// @Override
-//	public int compareTo(Object o) {
-//		ArrayList<Serie> Series = new ArrayList<Serie>();
-//		Series = (ArrayList<Serie>) o;
-//		int NumMasGrande = Series.get(0).numero_temporadas;
-//		int MasTemporadas = 0;
-//
-//		for (int i=1; i < Series.size(); i++) {
-//			if (Series.get(i).numero_temporadas >= NumMasGrande) {
-//				NumMasGrande = Series.get(i).numero_temporadas;
-//				MasTemporadas = i;
-//			}
-//		}
-//
-//		
-//		return MasTemporadas;
-//	}
-
 	@Override
 	public boolean compareTo(Object pelicula) {
-		// Retorna true si la Serie tienes más temporadas que su
+		// Retorna false si la Serie tienes más temporadas que su
 		// Argumento
 		return (this.numero_temporadas < ((Serie) pelicula).getNumero_temporadas());
 

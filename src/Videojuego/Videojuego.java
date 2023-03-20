@@ -93,19 +93,9 @@ public class Videojuego implements Entregable {
 		this.entregado = false;
 	}
 
-//	@Override
-//	public int compareTo(Object o) {
-//		ArrayList<Videojuego> Videojuegos = new ArrayList<Videojuego>();
-//		Videojuegos = (ArrayList<Videojuego>) o;
-//		int NumMasGrande = Videojuegos.get(0).horas;
-//		int MasHoras = 0;
-//		
-//		return MasHoras;
-//	}
-
 	@Override
 	public boolean compareTo(Object videojuego) {
-		// Retorna true si la Serie tienes más temporadas que su
+		// Retorna false si la Serie tienes más temporadas que su
 		// Argumento
 		return (this.horas < ((Videojuego) videojuego).getHoras());
 	}
