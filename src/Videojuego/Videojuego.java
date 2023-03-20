@@ -92,21 +92,22 @@ public class Videojuego implements Entregable {
 	public void devolver() {
 		this.entregado = false;
 	}
-	
-	@Override
-	public int compareTo(Object o) {
-		ArrayList<Videojuego> Videojuegos = new ArrayList<Videojuego>();
-		Videojuegos = (ArrayList<Videojuego>) o;
-		int NumMasGrande = Videojuegos.get(0).horas;
-		int MasHoras = 0;
-		
-		return MasHoras;
-	}
 
-	/*public boolean compareTo(Object videojuego) {
+//	@Override
+//	public int compareTo(Object o) {
+//		ArrayList<Videojuego> Videojuegos = new ArrayList<Videojuego>();
+//		Videojuegos = (ArrayList<Videojuego>) o;
+//		int NumMasGrande = Videojuegos.get(0).horas;
+//		int MasHoras = 0;
+//		
+//		return MasHoras;
+//	}
+
+	@Override
+	public boolean compareTo(Object videojuego) {
 		// Retorna true si la Serie tienes más temporadas que su
 		// Argumento
-		return (this.horas > ((Videojuego) videojuego).getHoras());
-	}*/
+		return (this.horas < ((Videojuego) videojuego).getHoras());
+	}
 
 }

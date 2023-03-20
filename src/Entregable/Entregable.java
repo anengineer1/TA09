@@ -8,5 +8,5 @@ public interface Entregable {
 
 	public boolean isEntregado();
 
-	public int compareTo(Object o);
+	public boolean compareTo(Object o);
 }
